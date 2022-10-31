@@ -52,3 +52,21 @@ print("\n")
 pyramidFunctionInCenter(numberOfFloors: 10)
 print("\n")
 pyramidFunctionInCenter(numberOfFloors: 9)
+print("\n")
+
+//MARK: - Question 5
+// 5-1
+/* If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+    Find the sum of all the multiples of 3 or 5 below 1000. */
+
+func multiplesOfThreeOrFive(){
+    let bound = 1000
+    var sum = 0
+    for i in 1..<bound {
+        if i % 5 == 0 || i % 3 == 0 {
+            sum += i
+        }
+    }
+    print(sum)
+}
+multiplesOfThreeOrFive()
