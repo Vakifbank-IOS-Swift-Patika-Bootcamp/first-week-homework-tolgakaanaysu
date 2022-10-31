@@ -36,3 +36,19 @@ pyramidFunction(numberOfFloors: 6)
 print("\n")
 pyramidFunction(numberOfFloors: 5)
 print("\n")
+
+//MARK: - Question 4
+func pyramidFunctionInCenter(numberOfFloors n: Int) {
+    var counter = 1
+    while(counter <= n) {
+        
+        print( String(repeating: " ", count: n - counter) + String(repeating: "* ", count: counter))
+        counter += 1
+    }
+}
+
+pyramidFunctionInCenter(numberOfFloors: 6)
+print("\n")
+pyramidFunctionInCenter(numberOfFloors: 10)
+print("\n")
+pyramidFunctionInCenter(numberOfFloors: 9)
