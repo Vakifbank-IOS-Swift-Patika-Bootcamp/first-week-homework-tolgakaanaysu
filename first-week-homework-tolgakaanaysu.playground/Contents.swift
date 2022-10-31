@@ -19,3 +19,20 @@ isPalindrome(str: "123321")
 isPalindrome(str: "Patika")
 isPalindrome(str: "12321")
 isPalindrome(str: "TolgaagloT")
+
+print("\n")
+//MARK: - Question 3
+func pyramidFunction(numberOfFloors: Int) {
+    var counter = 1
+    while(counter <= numberOfFloors) {
+        print(String(repeating: "*", count: counter))
+        counter += 1
+    }
+}
+
+pyramidFunction(numberOfFloors: 4)
+print("\n")
+pyramidFunction(numberOfFloors: 6)
+print("\n")
+pyramidFunction(numberOfFloors: 5)
+print("\n")
