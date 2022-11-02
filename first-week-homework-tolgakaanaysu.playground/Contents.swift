@@ -102,3 +102,45 @@ func sumEvenFibonacciNumbers(){
 print("\n")
 sumEvenFibonacciNumbers()
 
+// 5-3
+//The prime factors of 13195 are 5, 7, 13 and 29.
+// What is the largest prime factor of the number 600851475143 ?
+
+func isPrimeNumber(_ number: Int) -> Bool {
+    guard number % 2 != 0 || number == 2 else { return false }
+    var counter = 1
+    while counter < number {
+        if  number % counter == 0 && counter != 1{
+            return false
+        }
+        counter += 1
+    }
+    
+    return true
+}
+
+func largestPrimeFactor(_ number: Int ) -> Int {
+    var bound = Int(sqrt(Double(number)))
+    var counter = 2
+    var largest = 1
+    
+    while counter < bound + 1{
+        
+        if (Double(number) / Double(counter)).truncatingRemainder(dividingBy: 1.0) == 0 && isPrimeNumber(number / counter) {
+            return number / counter
+        } else {
+            if counter % 2 != 0 && number % counter == 0 && isPrimeNumber(counter) {
+                largest = counter
+            }
+        }
+        //
+        counter += 1
+    }
+    
+    return largest
+}
+
+//largestPrimeFactor(58)
+//largestPrimeFactor(60)
+//largestPrimeFactor(35)
+//largestPrimeFactor(600851475143)
