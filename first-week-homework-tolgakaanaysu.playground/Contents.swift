@@ -21,6 +21,18 @@ isPalindrome(str: "12321")
 isPalindrome(str: "TolgaagloT")
 
 print("\n")
+
+//MARK: - Question 2
+// https://developer.apple.com/documentation/foundation/nscountedset
+
+func numberOfElements(array: [Any]) {
+    let countedSet = NSCountedSet(array: array)
+    for item in countedSet {
+        print("\(item) elemanı", countedSet.count(for: item), "kere kullanılmıştır" )
+    }
+}
+numberOfElements(array: [1,2,23,"Tolga",53,"Tolga",true])
+
 //MARK: - Question 3
 func pyramidFunction(numberOfFloors: Int) {
     var counter = 1
@@ -29,7 +41,7 @@ func pyramidFunction(numberOfFloors: Int) {
         counter += 1
     }
 }
-
+print("\n")
 pyramidFunction(numberOfFloors: 4)
 print("\n")
 pyramidFunction(numberOfFloors: 6)
