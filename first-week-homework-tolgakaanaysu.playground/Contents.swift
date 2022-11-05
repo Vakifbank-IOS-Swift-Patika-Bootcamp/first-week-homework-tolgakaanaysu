@@ -31,7 +31,7 @@ func numberOfElements(array: [Any]) {
         print("\(item) elemanı", countedSet.count(for: item), "kere kullanılmıştır" )
     }
 }
-numberOfElements(array: [1,2,23,"Tolga",53,"Tolga",true])
+numberOfElements(array: ["A", 12.23, 2,23, "Tolga", 53, "Tolga", 12.23, "A", 2])
 
 //MARK: - Question 3
 func pyramidFunction(numberOfFloors: Int) {
@@ -90,7 +90,7 @@ multiplesOfThreeOrFive()
  1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 
  By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.*/
-func sumEvenFibonacciNumbers(){
+func sumEvenFibonacciNumbers(to number: Int){
     var sum = 0
     var left = 0
     var right = 1
@@ -103,56 +103,36 @@ func sumEvenFibonacciNumbers(){
         if right % 2 == 0 {
             sum += right
         }
-        print(right)
-        if right > 4000000 {
+        if right > number {
             break
         }
     }
-    print("sum: ",sum)
+    print("Fibonacci dizisinde \(number) sayısına kadar olan çift sayıların toplamı : \(sum) ")
 }
 
 print("\n")
-sumEvenFibonacciNumbers()
+sumEvenFibonacciNumbers(to: 4000000)
 
 // 5-3
 //The prime factors of 13195 are 5, 7, 13 and 29.
 // What is the largest prime factor of the number 600851475143 ?
 
-func isPrimeNumber(_ number: Int) -> Bool {
-    guard number % 2 != 0 || number == 2 else { return false }
-    var counter = 1
-    while counter < number {
-        if  number % counter == 0 && counter != 1{
-            return false
-        }
-        counter += 1
-    }
-    
-    return true
-}
-
 func largestPrimeFactor(_ number: Int ) -> Int {
-    var bound = Int(sqrt(Double(number)))
-    var counter = 2
-    var largest = 1
-    
-    while counter < bound + 1{
-        
-        if (Double(number) / Double(counter)).truncatingRemainder(dividingBy: 1.0) == 0 && isPrimeNumber(number / counter) {
-            return number / counter
-        } else {
-            if counter % 2 != 0 && number % counter == 0 && isPrimeNumber(counter) {
-                largest = counter
+    var n = number
+    var d = 2
+    var max = -1
+    while n > 1 {
+        while n % d == 0 {
+            if d > max {
+                max = d
             }
+            n /= d
         }
-        //
-        counter += 1
+        d += 1
     }
-    
-    return largest
+    return max
 }
-
-//largestPrimeFactor(58)
-//largestPrimeFactor(60)
-//largestPrimeFactor(35)
-//largestPrimeFactor(600851475143)
+largestPrimeFactor(58)
+largestPrimeFactor(60)
+largestPrimeFactor(35)
+largestPrimeFactor(600851475143)
