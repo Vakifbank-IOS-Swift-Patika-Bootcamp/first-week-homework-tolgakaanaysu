@@ -1,8 +1,29 @@
 import UIKit
 
 //MARK: - Question 1
-func isPalindrome(str: String) -> Bool {
-    var strArray = Array(str)
+
+extension String {
+    func replace(string:String, replacement:String) -> String {
+        return self.replacingOccurrences(of: string, with: replacement,
+                                         options: NSString.CompareOptions.literal, range: nil)
+    }
+    
+    func removeChar(to char: String) -> String {
+        return self.replace(string: char, replacement: "")
+    }
+    
+    func removeAllChar() -> String {
+        let charArray = [" ",".",",","!","?","-","_","+","*","/",]
+        var changedString = self
+        for char in charArray {
+            changedString = changedString.removeChar(to: char)
+        }
+        return changedString
+    }
+}
+
+func isPalindrome(_ str : String) -> Bool {
+    var strArray = Array(str.removeAllChar().lowercased())
     var count = strArray.count
     for i in 0..<(count / 2) {
         if strArray[i] != strArray[count - 1 - i]{
@@ -13,13 +34,15 @@ func isPalindrome(str: String) -> Bool {
     print("\(str) palindromdur.")
     return true
 }
-
 print("Question 1 -----------------")
-isPalindrome(str: "Tolga")
-isPalindrome(str: "123321")
-isPalindrome(str: "Patika")
-isPalindrome(str: "12321")
-isPalindrome(str: "TolgaagloT")
+isPalindrome("Tolga")
+isPalindrome("123321")
+isPalindrome("Patika")
+isPalindrome("12321")
+isPalindrome("Tolgaaglot")
+isPalindrome("taco cat taco cat")
+isPalindrome("t ac -o ca ,t? t -,aco cat.")
+
 
 print("\n")
 
