@@ -13,7 +13,7 @@ extension String {
     }
     
     func removeAllChar() -> String {
-        let charArray = [" ",".",",","!","?","-","_","+","*","/",]
+        let charArray = [" ",".",",","!","?","-","_","+","*","/"]
         var changedString = self
         for char in charArray {
             changedString = changedString.removeChar(to: char)
